@@ -1,0 +1,33 @@
+.form-group {
+  display: flex;
+  border: solid 1px $grey;
+  background-color:  $white;
+  border-radius: 5px;
+  > .inputwrapper {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    max-height: 36px;
+    > .input {
+      border: none;
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  &.-icon {
+    max-height: 36px;
+    > .inputwrapper {
+      .icon {
+        width: 15px;
+        > svg {
+          fill: $grey-dark;
+        }
+      }
+      .input {
+        margin-left: 8px;
+      }
+    }
+  }
+  
+}
