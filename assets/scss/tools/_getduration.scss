@@ -1,0 +1,4 @@
+// Mixin for duration 
+@function getDuration($i, $start: .09) {
+  @return .32+($i * $start)+s
+}

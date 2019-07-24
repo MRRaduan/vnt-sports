@@ -1,0 +1,14 @@
+@import 'settings/breakpoints';
+@import 'settings/easings';
+@import 'settings/colors';
+@import 'settings/fonts';
+
+@import 'tools/getduration';
+@import 'tools/responsive';
+
+@import 'base/base';
+
+
+@import 'components/text-primary';
+@import 'components/btn-primary';
+@import 'components/header-section';

@@ -1,0 +1,56 @@
+.text-primary {
+  display: block;
+  position: relative;
+  font-family: $rb;
+  color: $black;
+  font-size: 16px;
+
+  // *** 
+  // variables
+  // ***
+
+
+  // weights
+  &.-bold {
+    font-weight: 700;
+  }
+
+  &.-bolder {
+    font-weight: 900;
+  }
+
+  &.-light {
+    font-weight: 300;
+  }
+
+  &.-upper {
+    text-transform: uppercase;
+  }
+
+  // colors
+  &.-green {
+    color: $green;
+  }
+
+  &.-white {
+    color: $white;
+  }
+
+  &.-grey {
+    color: $grey;
+  }
+
+  &.-grey-dark  {
+    color: $grey-dark;
+  }
+  &.-link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.-title  {
+    font-size: 35px;
+  }
+}
