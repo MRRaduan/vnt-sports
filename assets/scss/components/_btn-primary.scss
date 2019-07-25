@@ -3,6 +3,21 @@
   position: relative;
   padding: 10px 18px;
   background-color: $green;
+  border: none;
   border-radius: 8px;
   text-align: center;
+  cursor: pointer;
+    text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
+  > .text-primary {
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  // variables
+  &.-grey {
+    background-color: $grey;
+  }
 }

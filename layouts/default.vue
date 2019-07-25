@@ -35,6 +35,7 @@ export default {
 }
 
 .layout-default {
+  padding-bottom: 60px;
   > .content {
     margin-top: 92px;
     @include breakpoint(medium) {
