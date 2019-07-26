@@ -4,7 +4,7 @@
 
 > A hight-fidelity prototype of Sports App user control
 
-![System interface](https://s3.amazonaws.com/www-inside-design/uploads/2018/05/lofi-hifi-proto-sq.jpg)
+![System interface](https://raw.githubusercontent.com/MRRaduan/vnt-sports/master/vnt.png)
 
 ## Getting Started
 
@@ -46,11 +46,11 @@ $ npm run build
 ## Built With
 
 - [Vuejs](https://vuejs.org/) - <3
-- [Nuxt](https://nuxtjs.org/) - For some patters
-- [Axios](https://github.com/axios/axios) - For some patters
-- [Vuelidate](https://github.com/vuelidate/vuelidate) - For validate sexier Vuejs forms
-- [Netlify](https://www.netlify.com/) - For site example deployment.
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - For site sample deployment.
+- [Nuxt](https://nuxtjs.org/) - <3
+- [Axios](https://github.com/axios/axios) - HTTPS requests
+- [Vuelidate](https://github.com/vuelidate/vuelidate) - Validate sexier Vuejs forms
+- [Netlify](https://www.netlify.com/) - Site example deployment.
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Generate fake data.
 
 ## Versioning
 
