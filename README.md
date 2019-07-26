@@ -1,6 +1,4 @@
-## Build Setup
-
-# Vnt Sports
+# VNT SPORTS
 
 > A hight-fidelity prototype of Sports App user control
 
