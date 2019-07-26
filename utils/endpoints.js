@@ -4,7 +4,7 @@ import { transformRidesDays } from './utils'
 export async function loadUsersData() {
   const ENDPOINTS = {
     users: 'https://jsonplaceholder.typicode.com/users',
-    riders_info: 'http://my-json-server.typicode.com/MRRaduan/vnt-sports/rider_info',
+    riders_info: 'https://my-json-server.typicode.com/MRRaduan/vnt-sports/rider_info',
     posts: 'https://jsonplaceholder.typicode.com/posts',
     albums: 'https://jsonplaceholder.typicode.com/albums',
     photos: 'https://jsonplaceholder.typicode.com/photos'
