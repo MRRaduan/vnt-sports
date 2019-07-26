@@ -122,7 +122,7 @@
 <script>
 import SportsInfo from '@/components/SportsInfo.vue'
 import usersMixin from '@/mixins/usersMixin.js'
-import { loadUsersData } from '@/utils/usersUtils.js'
+import { loadUsersData } from '@/utils/endpoints.js'
 
 export default {
   name: 'Users',

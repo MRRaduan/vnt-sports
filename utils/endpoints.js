@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { transformRidesDays } from './utils'
 
 export async function loadUsersData() {
   const ENDPOINTS = {
@@ -40,18 +41,23 @@ const formatData = data => {
         .length;
     });
 
-    // const userRide = data.riders_info(filter)
+    const userRide = (data.riders_info.filter(ride => ride.userId === user.id))[0].ride_in_group;
 
-
+    let arrRideDays = (data.riders_info.filter(ride => ride.userId === user.id))[0].day_of_the_week;
+    let rideDays = transformRidesDays(arrRideDays)
+    console.log(rideDays)
 
     let userTable = {
       id: user.id,
       username: user.username,
       email: user.email,
       city: user.address.city,
+      ride_in_group: userRide,
+      // day_of_week: ,
       posts: totalPosts,
       albums: totalAlbums,
       photos: totalPhotos,
     }
   });
 }
+
