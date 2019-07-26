@@ -1,0 +1,98 @@
+{
+  "rider_info": [
+    {
+      "id": "1",
+      "ride_in_group": "Always",
+      "day_of_the_week": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ]
+    },
+    {
+      "id": "2",
+      "ride_in_group": "Sometimes",
+      "day_of_the_week": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ]
+    },
+    {
+      "id": "3",
+      "ride_in_group": "Never",
+      "day_of_the_week": [
+        "Mon",
+        "Wed",
+        "Fri"
+      ]
+    },
+    {
+      "id": "4",
+      "ride_in_group": "Sometimes",
+      "day_of_the_week": [
+        "Mon",
+        "Tue",
+        "Fri"
+      ]
+    },
+    {
+      "id": "5",
+      "ride_in_group": "Sometimes",
+      "day_of_the_week": [
+        "Sun",
+        "Sat"
+      ]
+    },
+    {
+      "id": "6",
+      "ride_in_group": "Always",
+      "day_of_the_week": [
+        "Fri",
+        "Sun"
+      ]
+    },
+    {
+      "id": "7",
+      "ride_in_group": "Never",
+      "day_of_the_week": "Every day"
+    },
+    {
+      "id": "8",
+      "ride_in_group": "Always",
+      "day_of_the_week": [
+        "Fri",
+        "Sun",
+        "Wed"
+      ]
+    },
+    {
+      "id": "9",
+      "ride_in_group": "Sometimes",
+      "day_of_the_week": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ]
+    },
+    {
+      "id": "10",
+      "ride_in_group": "Always",
+      "day_of_the_week": [
+        "Sun",
+        "Thu",
+        "Fri"
+      ]
+    }
+  ]
+}
