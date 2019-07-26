@@ -15,22 +15,38 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">Username</label>
                 </div>
-                <input type="text" class="input" />
+                <input type="text" class="input" v-model="form.username" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
+                <span
+                  class="error-message"
+                  v-if="submitted && !$v.form.username.required"
+                >This field is required</span>
               </div>
               <div class="form-group">
                 <div class="header">
                   <label for class="label text-primary -black -bold">Name</label>
                 </div>
-                <input type="text" class="input" />
+                <input type="text" class="input" v-model="form.name" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
+                <span
+                  class="error-message"
+                  v-if="submitted && !$v.form.name.required"
+                >This field is required</span>
               </div>
               <div class="form-group">
                 <div class="header">
                   <label for class="label text-primary -black -bold">E-mail</label>
                 </div>
-                <input type="email" class="input" />
+                <input type="email" class="input" v-model="form.email" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
+                <span
+                  class="error-message"
+                  v-if="submitted && !$v.form.email.required"
+                >This field is required</span>
+                <span
+                  class="error-message"
+                  v-if="submitted && !$v.form.email.email"
+                >This field is required</span>
               </div>
             </div>
             <div class="form-section">
@@ -39,7 +55,7 @@
                   <label for class="label text-primary -black -bold">City</label>
                   <span class="optional text-primary -grey-dark -light">optional</span>
                 </div>
-                <input type="text" class="input" />
+                <input type="text" class="input" v-model="form.city" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
               </div>
               <div class="form-group -radio">
@@ -49,17 +65,37 @@
                 <div class="radiowrapper">
                   <label class="radio-button text-primary">
                     Always
-                    <input type="radio" checked="checked" name="radio" class="radio" />
+                    <input
+                      type="radio"
+                      name="radio"
+                      value="Always"
+                      id="radio-always"
+                      class="radio"
+                      v-model="form.rideInGroup"
+                    />
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
                     Sometimes
-                    <input type="radio" checked="checked" name="radio" class="radio" />
+                    <input
+                      type="radio"
+                      name="radio"
+                      value="Sometimes"
+                      id="radio-sometimes"
+                      v-model="form.rideInGroup"
+                    />
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
                     Never
-                    <input type="radio" checked="checked" name="radio" class="radio" />
+                    <input
+                      type="radio"
+                      name="radio"
+                      value="Never"
+                      id="radio-never"
+                      class="radio"
+                      v-model="form.rideInGroup"
+                    />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -76,7 +112,14 @@
                     :key="index"
                   >
                     {{ day }}
-                    <input type="checkbox" :name="day" class="chekbox" />
+                    <input
+                      type="checkbox"
+                      :name="day"
+                      :value="day"
+                      :id="day"
+                      class="chekbox"
+                      v-model="daysOfTheWeek"
+                    />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -85,7 +128,7 @@
             </div>
           </div>
           <div class="submit-buttons">
-            <button class="btn-primary -green">
+            <button class="btn-primary -green" @click.prevent="submit">
               <span class="text-primary -white">Save</span>
             </button>
             <button class="btn-primary -grey">
@@ -100,6 +143,8 @@
 
 <script>
 import RegistrationInfo from '@/components/RegistrationInfo.vue'
+import { required, email } from 'vuelidate/lib/validators'
+
 export default {
   name: 'Registration',
   components: {
@@ -107,7 +152,34 @@ export default {
   },
   data() {
     return {
-      daysWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      submitted: false,
+      daysWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      form: {
+        username: '',
+        name: '',
+        email: '',
+        city: '',
+        rideInGroup: '',
+        daysOfTheWeek: []
+      }
+    }
+  },
+  validations: {
+    form: {
+      name: { required },
+      username: { required },
+      email: { required, email }
+    }
+  },
+  methods: {
+    submit() {
+      this.submitted = true
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        return
+      }
+
+      alert('TOP')
     }
   }
 }
@@ -115,6 +187,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/styles.scss';
+
+.error-message {
+  color: $red;
+  font-size: 12px;
+}
 
 .form-container {
   padding-top: 25px;
