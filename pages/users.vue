@@ -56,8 +56,8 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr v-for="tableRow in tableContent" :key="tableRow.id">
+            <transition-group name="userstable" tag="tbody">
+              <tr v-for="(tableRow, index) in tableContent" :key="tableRow.id">
                 <td>
                   <p class="item text-primary">{{tableRow.username}}</p>
                 </td>
@@ -65,28 +65,35 @@
                   <p class="item text-primary">{{tableRow.name}}</p>
                 </td>
                 <td>
-                  <a href class="text-primary -link -green">{{tableRow.email}}</a>
+                  <a
+                    :href="'mailto:'+tableRow.email"
+                    class="text-primary -link -green"
+                  >{{tableRow.email}}</a>
                 </td>
                 <td>
-                  <a href class="text-primary -link -green">{{tableRow.address.city}}</a>
+                  <a
+                    :href="maps(tableRow.address)"
+                    class="text-primary -link -green"
+                    target="_blank"
+                  >{{tableRow.address.city}}</a>
                 </td>
                 <td>
-                  <p class="item text-primary">teste</p>
+                  <p class="item text-primary">{{tableRow.ride_in_group}}</p>
                 </td>
                 <td>
-                  <p class="item text-primary">teste</p>
+                  <p class="item text-primary">{{tableRow.day_of_week}}</p>
                 </td>
                 <td>
-                  <a href class="text-primary posts -link -green">teste</a>
+                  <a href class="text-primary posts -link -green">{{tableRow.posts.length}}</a>
                 </td>
                 <td>
-                  <a href class="text-primary albums -link -green">teste</a>
+                  <a href class="text-primary albums -link -green">{{tableRow.albums.length}}</a>
                 </td>
                 <td>
-                  <p class="item text-primary photos">teste</p>
+                  <p class="item text-primary photos">{{tableRow.photos}}</p>
                 </td>
                 <td>
-                  <button class="deleteicon">
+                  <button class="deleteicon" @click.prevent="deleteItem(index)">
                     <svg
                       aria-hidden="true"
                       focusable="false"
@@ -105,7 +112,7 @@
                   </button>
                 </td>
               </tr>
-            </tbody>
+            </transition-group>
           </table>
         </div>
 
@@ -121,7 +128,6 @@
 
 <script>
 import SportsInfo from '@/components/SportsInfo.vue'
-import usersMixin from '@/mixins/usersMixin.js'
 import { loadUsersData } from '@/utils/endpoints.js'
 
 export default {
@@ -129,7 +135,6 @@ export default {
   components: {
     SportsInfo
   },
-  mixins: [usersMixin],
   data() {
     return {
       theadColumns: [
@@ -147,18 +152,18 @@ export default {
     }
   },
   methods: {
+    maps(address) {
+      return `http://maps.google.com/maps?q=${address.geo.lat},${address.geo.lng}`
+    },
     async getTableContent() {
-      await this.$axios
-        .get('https://jsonplaceholder.typicode.com/users')
-        .then((res) => {
-          this.tableContent = res.data
-        })
+      this.tableContent = await loadUsersData()
+    },
+    deleteItem(index) {
+      this.tableContent.splice(index, 1)
     }
   },
   mounted() {
     this.getTableContent()
-    this.aCommonMethod()
-    loadUsersData()
   }
 }
 </script>
@@ -166,6 +171,27 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/styles.scss';
+
+.userstable {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.userstable-enter,
+.userstable-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: all 1s ease-in-out;
+}
+
+.userstable-leave-active {
+  position: absolute;
+}
+
+.userstable-move {
+  transition: transform 1s;
+}
 
 .header-section {
   display: flex;
@@ -193,6 +219,7 @@ export default {
   border: none;
   border-spacing: 0;
   border-collapse: separate;
+  overflow-y: hidden;
   .columntitle {
     text-align: left;
     font-size: 14px;
@@ -222,7 +249,7 @@ export default {
   th,
   td {
     border: none;
-    padding: 0 15px;
+    padding: 0 14px;
   }
   tr {
     td {

@@ -45,19 +45,20 @@ const formatData = data => {
 
     let arrRideDays = (data.riders_info.filter(ride => ride.userId === user.id))[0].day_of_the_week;
     let rideDays = transformRidesDays(arrRideDays)
-    console.log(rideDays)
 
     let userTable = {
       id: user.id,
       username: user.username,
+      name: user.name,
       email: user.email,
-      city: user.address.city,
+      address: user.address,
       ride_in_group: userRide,
-      // day_of_week: ,
+      day_of_week: rideDays,
       posts: totalPosts,
       albums: totalAlbums,
       photos: totalPhotos,
     }
+    return userTable;
   });
 }
 
