@@ -1,8 +1,8 @@
 {
   "rider_info": [
     {
-      "userId": "1",
-      "id": "1",
+      "userId": 1,
+      "id": 1,
       "ride_in_group": "Always",
       "day_of_the_week": [
         "Sun",
@@ -15,8 +15,8 @@
       ]
     },
     {
-      "userId": "2",
-      "id": "2",
+      "userId": 2,
+      "id": 2,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
         "Mon",
@@ -27,8 +27,8 @@
       ]
     },
     {
-      "userId": "3",
-      "id": "3",
+      "userId": 3,
+      "id": 3,
       "ride_in_group": "Never",
       "day_of_the_week": [
         "Mon",
@@ -37,8 +37,8 @@
       ]
     },
     {
-      "userId": "4",
-      "id": "4",
+      "userId": 4,
+      "id": 4,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
         "Mon",
@@ -47,8 +47,8 @@
       ]
     },
     {
-      "userId": "5",
-      "id": "5",
+      "userId": 5,
+      "id": 5,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
         "Sun",
@@ -56,8 +56,8 @@
       ]
     },
     {
-      "userId": "6",
-      "id": "6",
+      "userId": 6,
+      "id": 6,
       "ride_in_group": "Always",
       "day_of_the_week": [
         "Fri",
@@ -65,14 +65,14 @@
       ]
     },
     {
-      "userId": "7",
-      "id": "7",
+      "userId": 7,
+      "id": 7,
       "ride_in_group": "Never",
       "day_of_the_week": "Every day"
     },
     {
-      "userId": "8",
-      "id": "8",
+      "userId": 8,
+      "id": 8,
       "ride_in_group": "Always",
       "day_of_the_week": [
         "Fri",
@@ -81,8 +81,8 @@
       ]
     },
     {
-      "userId": "9",
-      "id": "9",
+      "userId": 9,
+      "id": 9,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
         "Sun",
@@ -95,8 +95,8 @@
       ]
     },
     {
-      "userId": "10",
-      "id": "10",
+      "userId": 10,
+      "id": 10,
       "ride_in_group": "Always",
       "day_of_the_week": [
         "Sun",
