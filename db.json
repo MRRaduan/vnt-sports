@@ -93,13 +93,11 @@
       "id": 9,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
-        "Sun",
         "Mon",
         "Tue",
         "Wed",
         "Thu",
-        "Fri",
-        "Sat"
+        "Fri"
       ]
     },
     {
