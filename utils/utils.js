@@ -1,12 +1,12 @@
 const everyday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const weekends = ["Sat", "Sun"];
+const weekends = ['Sat", "Sun'];
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const transformRidesDays = rideDays => {
 
   return isSameArray(rideDays, everyday)
     ? 'Every day'
-    : isSameArray(rideDays, weekdays)
+    : isSameArray(rideDays, weekends)
       ? 'Weekends'
       : isSameArray(rideDays, weekdays)
         ? 'Week day'

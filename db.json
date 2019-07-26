@@ -51,8 +51,8 @@
       "id": 5,
       "ride_in_group": "Sometimes",
       "day_of_the_week": [
-        "Sun",
-        "Sat"
+        "Sat",
+        "Sun"
       ]
     },
     {
@@ -69,13 +69,8 @@
       "id": 7,
       "ride_in_group": "Never",
       "day_of_the_week": [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat"
+        "Sat",
+        "Sun"
       ]
     },
     {
