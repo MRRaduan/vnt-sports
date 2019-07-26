@@ -121,11 +121,15 @@
 
 <script>
 import SportsInfo from '@/components/SportsInfo.vue'
+import usersMixin from '@/mixins/usersMixin.js'
+import { loadUsersData } from '@/utils/usersUtils.js'
+
 export default {
   name: 'Users',
   components: {
     SportsInfo
   },
+  mixins: [usersMixin],
   data() {
     return {
       theadColumns: [
@@ -149,11 +153,12 @@ export default {
         .then((res) => {
           this.tableContent = res.data
         })
-      console.log(this.tableContent)
     }
   },
   mounted() {
     this.getTableContent()
+    this.aCommonMethod()
+    loadUsersData()
   }
 }
 </script>
