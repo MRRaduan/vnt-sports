@@ -1,7 +1,7 @@
 export default {
   methods: {
     aCommonMethod() {
-      console.log('mixin')
+      // console.log('mixin')
     }
   }
 }
