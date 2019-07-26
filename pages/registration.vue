@@ -4,10 +4,10 @@
       <div class="header-section">
         <h1 class="text-primary -title -light">Registration</h1>
       </div>
-      <RegistrationInfo />
+      <RegistrationInfo/>
 
       <div class="form-container">
-        <hr class="separator" />
+        <hr class="separator">
         <form action class="registration-form">
           <div class="form">
             <div class="form-section">
@@ -15,7 +15,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">Username</label>
                 </div>
-                <input type="text" class="input" v-model="form.username" />
+                <input type="text" class="input" v-model="form.username">
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -26,7 +26,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">Name</label>
                 </div>
-                <input type="text" class="input" v-model="form.name" />
+                <input type="text" class="input" v-model="form.name">
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -37,7 +37,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">E-mail</label>
                 </div>
-                <input type="email" class="input" v-model="form.email" />
+                <input type="email" class="input" v-model="form.email">
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -55,7 +55,7 @@
                   <label for class="label text-primary -black -bold">City</label>
                   <span class="optional text-primary -grey-dark -light">optional</span>
                 </div>
-                <input type="text" class="input" v-model="form.city" />
+                <input type="text" class="input" v-model="form.address.city">
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
               </div>
               <div class="form-group -radio">
@@ -72,7 +72,7 @@
                       id="radio-always"
                       class="radio"
                       v-model="form.rideInGroup"
-                    />
+                    >
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
@@ -83,7 +83,7 @@
                       value="Sometimes"
                       id="radio-sometimes"
                       v-model="form.rideInGroup"
-                    />
+                    >
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
@@ -95,7 +95,7 @@
                       id="radio-never"
                       class="radio"
                       v-model="form.rideInGroup"
-                    />
+                    >
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -118,8 +118,8 @@
                       :value="day"
                       :id="day"
                       class="chekbox"
-                      v-model="daysOfTheWeek"
-                    />
+                      v-model="form.daysOfTheWeek"
+                    >
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -144,6 +144,7 @@
 <script>
 import RegistrationInfo from '@/components/RegistrationInfo.vue'
 import { required, email } from 'vuelidate/lib/validators'
+import { transformRidesDays } from '@/utils/utils'
 
 export default {
   name: 'Registration',
@@ -158,7 +159,9 @@ export default {
         username: '',
         name: '',
         email: '',
-        city: '',
+        address: {
+          city: ''
+        },
         rideInGroup: '',
         daysOfTheWeek: []
       }
@@ -178,8 +181,20 @@ export default {
       if (this.$v.$invalid) {
         return
       }
+      const rideDays = transformRidesDays(this.form.daysOfTheWeek)
+      const newUser = {
+        id: '',
+        username: this.form.username,
+        name: this.form.name,
+        email: this.form.email,
+        ride_in_group: this.form.rideInGroup,
+        day_of_week: rideDays,
+        posts: 0,
+        albums: 0,
+        photops: 0
+      }
 
-      alert('TOP')
+      console.log(newUser)
     }
   }
 }

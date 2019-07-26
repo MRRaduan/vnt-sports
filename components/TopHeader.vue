@@ -5,7 +5,7 @@
         <div class="logo">
           <i class="fas fa-volleyball-ball"></i>
         </div>
-        <span class="text-primary -black -bold">Venturus Sports</span>
+        <span class="text-primary -black -bold">Sports</span>
       </a>
       <div class="user-dropdown">
         <div class="header">

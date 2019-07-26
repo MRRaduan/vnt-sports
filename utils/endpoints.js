@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { transformRidesDays } from './utils'
+import {
+  transformRidesDays
+} from './utils'
 
 export async function loadUsersData() {
   const ENDPOINTS = {
@@ -11,12 +13,12 @@ export async function loadUsersData() {
   }
 
   return Promise.all([
-    axios.get(ENDPOINTS.users),
-    axios.get(ENDPOINTS.riders_info),
-    axios.get(ENDPOINTS.posts),
-    axios.get(ENDPOINTS.albums),
-    axios.get(ENDPOINTS.photos)
-  ]).then(values => setValues(values).then())
+      axios.get(ENDPOINTS.users),
+      axios.get(ENDPOINTS.riders_info),
+      axios.get(ENDPOINTS.posts),
+      axios.get(ENDPOINTS.albums),
+      axios.get(ENDPOINTS.photos)
+    ]).then(values => setValues(values).then())
     .then(objs => formatData(objs))
 }
 
@@ -27,7 +29,13 @@ const setValues = async values => {
   const albums = await values[3].data;
   const photos = await values[4].data;
 
-  return { users, riders_info, posts, albums, photos }
+  return {
+    users,
+    riders_info,
+    posts,
+    albums,
+    photos
+  }
 }
 
 const formatData = data => {
@@ -60,5 +68,4 @@ const formatData = data => {
     }
     return userTable;
   });
-}
-
+};
