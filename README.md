@@ -1,26 +1,16 @@
-# VNT SPORTS
+# Venturus Sports
 
 > A hight-fidelity prototype of Sports App user control
 
 ![System interface](https://raw.githubusercontent.com/MRRaduan/vnt-sports/master/vnt.png)
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Install VueJS and Nuxt.
 
 ### Installing
 
-It's a Nuxt app, so just run the defaults commands.
-
-Say what the step will be
+It's a Nuxt app, so you just need run the defaults commands of the framework.
 
 ```bash
 # install dependencies
@@ -33,8 +23,8 @@ $ npm run dev
 
 ## Build Production
 
-The default nuxt commands for deployment.
-It`s a SPA, so we just need run:
+Our aplication is set for SPA mode.
+We just need to run the default nuxt command to build.
 
 ```bash
 # generate static project
@@ -43,25 +33,18 @@ $ npm run build
 
 ## Built With
 
-- [Vuejs](https://vuejs.org/) - <3
-- [Nuxt](https://nuxtjs.org/) - <3
+- [Vuejs](https://vuejs.org/) :heart:
+- [Nuxt](https://nuxtjs.org/) :muscle:
 - [Axios](https://github.com/axios/axios) - HTTPS requests
-- [Vuelidate](https://github.com/vuelidate/vuelidate) - Validate sexier Vuejs forms
-- [Netlify](https://www.netlify.com/) - Site example deployment.
+- [Vuelidate](https://github.com/vuelidate/vuelidate) - Validate Vuejs forms
+- [Netlify](https://www.netlify.com/) - Deployment for aplication sample site.
 - [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Generate fake data.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Author
 
-- **Matheus Raduan** - _Initial work_ - [MRRaduan](https://github.com/MRRaduan)
+- [MRRaduan](https://github.com/MRRaduan) - _I solve problems_
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-- I solve problems - Mr. Wolf
