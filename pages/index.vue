@@ -6,7 +6,8 @@
 
 <script>
 export default {
-  layout: 'default'
+  layout: 'default',
+  middleware: 'usersRedirect'
 }
 </script>
 

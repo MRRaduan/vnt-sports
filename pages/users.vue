@@ -72,10 +72,16 @@
                 </td>
                 <td>
                   <a
+                    v-if="tableRow.address.geo"
                     :href="maps(tableRow.address)"
                     class="text-primary -link -green"
                     target="_blank"
                   >{{tableRow.address.city}}</a>
+                  <span
+                    v-else
+                    class="text-primary -link -green"
+                    target="_blank"
+                  >{{tableRow.address.city}}</span>
                 </td>
                 <td>
                   <p class="item text-primary">{{tableRow.ride_in_group}}</p>
@@ -93,7 +99,7 @@
                   <p class="item text-primary photos">{{tableRow.photos}}</p>
                 </td>
                 <td>
-                  <button class="deleteicon" @click.prevent="deleteItem(index)">
+                  <button class="deleteicon" @click.prevent="deleteItem(tableRow)">
                     <svg
                       aria-hidden="true"
                       focusable="false"
@@ -128,7 +134,7 @@
 
 <script>
 import SportsInfo from '@/components/SportsInfo.vue'
-import { loadUsersData } from '@/utils/endpoints.js'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Users',
@@ -147,23 +153,19 @@ export default {
         'Posts',
         'Albums',
         'Photos'
-      ],
-      tableContent: null
+      ]
     }
+  },
+  computed: {
+    ...mapGetters({ tableContent: 'getUsersTableData' })
   },
   methods: {
     maps(address) {
       return `http://maps.google.com/maps?q=${address.geo.lat},${address.geo.lng}`
     },
-    async getTableContent() {
-      this.tableContent = await loadUsersData()
-    },
-    deleteItem(index) {
-      this.tableContent.splice(index, 1)
+    deleteItem(user) {
+      this.$store.commit('DELETE_USER_TABLE', user)
     }
-  },
-  mounted() {
-    this.getTableContent()
   }
 }
 </script>

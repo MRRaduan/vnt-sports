@@ -13,11 +13,21 @@
 <script>
 import TopHeader from '@/components/TopHeader.vue'
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import { loadUsersData } from '@/utils/endpoints.js'
 
 export default {
   components: {
     TopHeader,
     Breadcrumb
+  },
+  methods: {
+    async getTableContent() {
+      const tableContent = await loadUsersData()
+      this.$store.commit('UPDATE_USERS_TABLE', tableContent)
+    }
+  },
+  mounted() {
+    this.getTableContent()
   }
 }
 </script>

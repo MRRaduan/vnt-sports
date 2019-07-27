@@ -4,7 +4,36 @@
 
 ![System interface](https://raw.githubusercontent.com/MRRaduan/vnt-sports/master/vnt.png)
 
-### Prerequisites
+## Build with:
+
+#### JS 
+- :heart: [Vuejs](https://vuejs.org/) 
+- :muscle: [Nuxt](https://nuxtjs.org/) 
+
+#### CSS
+- CSS Stylesheet Structure: [RSCSS](https://rscss.io/)
+- Folder Structure: [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+- Preprocessor: [SASS/SCSS](https://sass-lang.com/)
+
+#### Plugins
+- Reset styles to start development: [Normalize.css](https://necolas.github.io/normalize.css/)
+- Validate Vuejs forms: [Vuelidate](https://github.com/vuelidate/vuelidate) 
+- HTTPS requests: [Axios](https://github.com/axios/axios) 
+
+#### Data
+- Generate fake data: [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+
+#### Deployment
+- Deployment for aplication sample site: [Netlify](https://www.netlify.com/) 
+
+#### Fonts
+- Typography: [Roboto Family](https://fonts.google.com/specimen/Roboto)
+
+#### Icons 
+- Icons: [Font Awesome](https://fontawesome.com/) 
+ 
+
+## Prerequisites
 
 Install VueJS and Nuxt.
 
@@ -31,14 +60,6 @@ We just need to run the default nuxt command to build.
 $ npm run build
 ```
 
-## Built With
-
-- [Vuejs](https://vuejs.org/) :heart:
-- [Nuxt](https://nuxtjs.org/) :muscle:
-- [Axios](https://github.com/axios/axios) - HTTPS requests
-- [Vuelidate](https://github.com/vuelidate/vuelidate) - Validate Vuejs forms
-- [Netlify](https://www.netlify.com/) - Deployment for aplication sample site.
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Generate fake data.
 
 
 ## Author

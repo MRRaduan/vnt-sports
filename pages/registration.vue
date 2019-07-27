@@ -4,10 +4,10 @@
       <div class="header-section">
         <h1 class="text-primary -title -light">Registration</h1>
       </div>
-      <RegistrationInfo/>
+      <RegistrationInfo />
 
       <div class="form-container">
-        <hr class="separator">
+        <hr class="separator" />
         <form action class="registration-form">
           <div class="form">
             <div class="form-section">
@@ -15,7 +15,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">Username</label>
                 </div>
-                <input type="text" class="input" v-model="form.username">
+                <input type="text" class="input" v-model="form.username" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -26,7 +26,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">Name</label>
                 </div>
-                <input type="text" class="input" v-model="form.name">
+                <input type="text" class="input" v-model="form.name" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -37,7 +37,7 @@
                 <div class="header">
                   <label for class="label text-primary -black -bold">E-mail</label>
                 </div>
-                <input type="email" class="input" v-model="form.email">
+                <input type="email" class="input" v-model="form.email" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
                 <span
                   class="error-message"
@@ -55,7 +55,7 @@
                   <label for class="label text-primary -black -bold">City</label>
                   <span class="optional text-primary -grey-dark -light">optional</span>
                 </div>
-                <input type="text" class="input" v-model="form.address.city">
+                <input type="text" class="input" v-model="form.address.city" />
                 <span class="footer text-primary -grey-dark">Instructions to show on input focus.</span>
               </div>
               <div class="form-group -radio">
@@ -72,7 +72,7 @@
                       id="radio-always"
                       class="radio"
                       v-model="form.rideInGroup"
-                    >
+                    />
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
@@ -83,7 +83,7 @@
                       value="Sometimes"
                       id="radio-sometimes"
                       v-model="form.rideInGroup"
-                    >
+                    />
                     <span class="checkmark"></span>
                   </label>
                   <label class="radio-button text-primary">
@@ -95,7 +95,7 @@
                       id="radio-never"
                       class="radio"
                       v-model="form.rideInGroup"
-                    >
+                    />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -119,7 +119,7 @@
                       :id="day"
                       class="chekbox"
                       v-model="form.daysOfTheWeek"
-                    >
+                    />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -128,10 +128,10 @@
             </div>
           </div>
           <div class="submit-buttons">
-            <button class="btn-primary -green" @click.prevent="submit">
+            <button class="btn-primary -green" @click.prevent="submit" type="submit">
               <span class="text-primary -white">Save</span>
             </button>
-            <button class="btn-primary -grey">
+            <button class="btn-primary -grey" @click.prevent="resetForm" type="button">
               <span class="text-primary -grey-dark">Discard</span>
             </button>
           </div>
@@ -174,7 +174,18 @@ export default {
       email: { required, email }
     }
   },
+
   methods: {
+    generateId() {
+      return (
+        Math.random()
+          .toString(36)
+          .substring(2, 15) +
+        Math.random()
+          .toString(36)
+          .substring(2, 15)
+      )
+    },
     submit() {
       this.submitted = true
       this.$v.$touch()
@@ -183,18 +194,32 @@ export default {
       }
       const rideDays = transformRidesDays(this.form.daysOfTheWeek)
       const newUser = {
-        id: '',
+        id: this.generateId(),
         username: this.form.username,
         name: this.form.name,
         email: this.form.email,
         ride_in_group: this.form.rideInGroup,
         day_of_week: rideDays,
-        posts: 0,
-        albums: 0,
-        photops: 0
+        address: this.form.address,
+        posts: [],
+        albums: [],
+        photos: 0
       }
 
-      console.log(newUser)
+      this.$store.commit('ADD_USER_TABLE', newUser)
+      this.$router.push('/users')
+    },
+    resetForm() {
+      this.form = {
+        username: '',
+        name: '',
+        email: '',
+        address: {
+          city: ''
+        },
+        rideInGroup: '',
+        daysOfTheWeek: []
+      }
     }
   }
 }
