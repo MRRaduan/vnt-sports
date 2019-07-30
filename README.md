@@ -2,6 +2,8 @@
 
 > A hight-fidelity prototype of Sports App user control
 
+*PS: This is a improvements branch that was created after challenge sent*
+
 ![System interface](https://raw.githubusercontent.com/MRRaduan/vnt-sports/master/vnt.png)
 
 ## Build with:
